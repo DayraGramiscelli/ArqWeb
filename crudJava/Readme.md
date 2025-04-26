@@ -1,83 +1,93 @@
-# Projeto Spring Boot
+CRUD Java com Relacionamentos entre Entidades
+Java
+JSF
+JPA
 
-## Descrição
-Este projeto foi desenvolvido como parte da aula de Arquitetura de Aplicação Web, utilizando o framework Spring Boot. O objetivo principal foi demonstrar a criação de uma aplicação CRUD com as entidades **Departamento** e **Empregado**, além de um exemplo de "Hello World" para introduzir o uso do Spring Boot.
+📋 Sobre o Projeto
+Este projeto demonstra uma aplicação web Java completa que implementa operações CRUD (Create, Read, Update, Delete) com relacionamentos entre entidades. A aplicação utiliza:
 
-## Tecnologias Utilizadas
-- **Spring Boot**: Framework para simplificar o desenvolvimento de aplicações Java.
-- **Spring Web**: Para criação de APIs REST.
-- **Spring Data JPA**: Para integração com banco de dados utilizando o padrão JPA.
-- **Lombok**: Para reduzir a verbosidade do código, gerando automaticamente getters, setters, construtores, etc.
-- **Spring DevTools**: Para facilitar o desenvolvimento com recarregamento automático.
-- **MariaDB**: Banco de dados relacional utilizado no projeto.
+Java EE/Jakarta EE para a camada backend
 
-## Estrutura do Projeto
-O projeto segue a estrutura padrão do Spring Boot:
+JSF (JavaServer Faces) para a interface web
 
-- **Controllers**: Contém os controladores responsáveis por expor as APIs REST.
-- **Models**: Contém as classes que representam as entidades do banco de dados.
-- **Repositories**: Contém as interfaces para acesso ao banco de dados.
-- **Services**: Contém a lógica de negócio da aplicação.
+JPA com Hibernate para persistência de dados
 
-## Entidades
-### Departamento
-Representa um departamento dentro da organização.
-- **Atributos**: id, nome, descrição.
+Maven para gerenciamento de dependências
 
-### Empregado
-Representa um empregado associado a um departamento.
-- **Atributos**: id, nome, cargo, departamento.
+🏗️ Arquitetura e Estrutura
+O projeto segue o padrão MVC (Model-View-Controller) organizado em quatro camadas principais:
 
-## Relacionamento Empregado-Departamento
+Camada de Modelo: Contém as entidades que representam as tabelas do banco de dados
 
-O relacionamento entre as entidades **Empregado** e **Departamento** é representado na imagem abaixo. Este relacionamento é do tipo **muitos-para-um** (Many-to-One), onde:
+Camada de Repositório: Responsável pelas operações básicas de banco de dados
 
-- Um **Departamento** pode ter vários **Empregados** associados a ele.
-- Cada **Empregado** pertence a um único **Departamento**.
+Camada de Serviço: Implementa a lógica de negócio e regras de validação
 
-Essa estrutura reflete uma organização típica, onde os empregados são agrupados em departamentos específicos.
+Camada de Apresentação: Interface web construída com JSF e XHTML
 
-![Relacionamento Empregado-Departamento](EmpregadoDepartamento.png)
+🔗 Relacionamentos Implementados
+O projeto exemplifica dois tipos fundamentais de relacionamentos entre entidades:
 
-## Configuração do Banco de Dados
-O projeto utiliza o MariaDB como banco de dados. Para facilitar a configuração e execução do MariaDB, recomendamos o uso do [XAMPP](https://www.apachefriends.org/pt_br/index.html), que fornece um ambiente integrado com MariaDB, Apache e outras ferramentas úteis.
+Relação Um-para-Muitos (One-to-Many):
 
-### Configurando o XAMPP
-1. Baixe e instale o XAMPP a partir do site oficial: [https://www.apachefriends.org/pt_br/index.html](https://www.apachefriends.org/pt_br/index.html).
-2. Após a instalação, inicie o painel de controle do XAMPP.
-3. Inicie o serviço do **MariaDB** clicando em "Start" ao lado de "MySQL".
-4. Configure as credenciais do banco de dados no arquivo `application.properties` ou `application.yaml` do projeto:
+Implementado entre as entidades Pessoa e Telefone
 
-```properties
-spring.datasource.url=jdbc:mariadb://localhost:3306/seu_banco
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
-spring.jpa.hibernate.ddl-auto=update
-```
+Uma Pessoa pode possuir múltiplos Telefones
 
-## Executando o Projeto
-1. Certifique-se de que o MariaDB está em execução no XAMPP.
-2. Abra o projeto no **Visual Studio Code**.
-3. Certifique-se de que a extensão **Spring Boot Extension Pack** está instalada no VS Code.
-4. No painel do **Spring Boot Dashboard**, localize o projeto e clique no botão de "play" para iniciar a aplicação.
-5. Acesse a aplicação no navegador ou via ferramentas como Postman em: `http://localhost:8080`.
+Cada Telefone pertence a uma única Pessoa
 
-## Endpoints Principais
-### Hello World
-- **GET** `/hello`
-  - Retorna uma mensagem de "Hello World".
+Configurado com operações em cascata para manter a integridade dos dados
 
-### Departamento
-- **GET** `/departments`
-  - Lista todos os departamentos.
-- **POST** `/departments`
-  - Cria um novo departamento.
+Relação Muitos-para-Muitos (Many-to-Many):
 
-### Empregado
-- **GET** `/employees`
-  - Lista todos os empregados.
-- **POST** `/employees`
-  - Cria um novo empregado.
+Implementado entre as entidades Aluno e Curso
 
-## Conclusão
-Este projeto serve como base para entender os conceitos fundamentais do Spring Boot e como criar uma aplicação CRUD simples com integração a banco de dados. Ele pode ser expandido para incluir mais funcionalidades e entidades conforme necessário.
+Um Aluno pode se matricular em vários Cursos
+
+Um Curso pode ter vários Alunos matriculados
+
+Utiliza uma tabela de junção para mapear o relacionamento
+
+🚀 Funcionalidades Principais
+Cadastro, consulta, atualização e remoção de entidades
+
+Validação de dados na camada de serviço
+
+Navegação entre entidades relacionadas
+
+Interface intuitiva para gerenciamento dos relacionamentos
+
+Tratamento adequado de exceções e mensagens ao usuário
+
+💻 Tecnologias Utilizadas
+Backend: Java EE 8, JPA 2.2, EJB 3.2
+
+Frontend: JSF 2.3, Facelets (XHTML), CSS básico
+
+Banco de Dados: Configurável (padrão com H2 embarcado)
+
+Ferramentas: Maven para build, JUnit para testes
+
+📌 Pré-requisitos
+Para executar o projeto localmente, você precisará de:
+
+JDK 11 ou superior
+
+Servidor de aplicação Java EE (TomEE, WildFly, GlassFish)
+
+Maven 3.6+
+
+IDE de desenvolvimento (recomendado)
+
+🔧 Configuração e Execução
+Clone o repositório
+
+Configure as propriedades do banco de dados
+
+Execute o build com Maven
+
+Faça deploy no servidor de aplicação
+
+Acesse a aplicação pelo navegador
+
+O projeto está pronto para ser extendido com novas funcionalidades ou integrado a outros sistemas. A arquitetura limpa e a organização do código facilitam a manutenção e evolução da aplicação.
