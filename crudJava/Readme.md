@@ -3,10 +3,13 @@
 ## 📋 Sobre o Projeto
 Este projeto demonstra uma aplicação web Java completa que implementa operações CRUD (Create, Read, Update, Delete) com relacionamentos entre entidades. A aplicação utiliza:
 
-- Java EE/Jakarta EE para a camada backend
-- JSF (JavaServer Faces) para a interface web
-- JPA com Hibernate para persistência de dados
-- Maven para gerenciamento de dependências
+## 🛠 Tecnologias
+- Java 17
+- Spring Boot 3.1.0
+- Spring Data JPA
+- Lombok
+- MariaDB
+- Maven
 
 ## 🏗️ Arquitetura e Estrutura
 O projeto segue o padrão MVC (Model-View-Controller) organizado em quatro camadas principais:
@@ -38,11 +41,6 @@ O projeto exemplifica dois tipos fundamentais de relacionamentos entre entidades
 - Interface intuitiva para gerenciamento dos relacionamentos
 - Tratamento adequado de exceções e mensagens ao usuário
 
-## 💻 Tecnologias Utilizadas
-- **Backend**: Java EE 8, JPA 2.2, EJB 3.2
-- **Frontend**: JSF 2.3, Facelets (XHTML), CSS básico
-- **Banco de Dados**: Configurável (padrão com H2 embarcado)
-- **Ferramentas**: Maven para build, JUnit para testes
 
 ## 📌 Pré-requisitos
 Para executar o projeto localmente, você precisará de:
